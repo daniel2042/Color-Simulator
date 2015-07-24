@@ -82,7 +82,7 @@ MainWindow::MainWindow()
     end_color_button->setStyleSheet("background-color: rgb(" + QString::number(end_color.red()) + "," + QString::number(end_color.green()) + "," + QString::number(end_color.blue()) + ");  border: none;");
 
     end_color_label = new QLabel(this);
-    end_color_label->setGeometry(280,330,100,20);
+    end_color_label->setGeometry(250,330,140,20);
     end_color_label->setText("R: " + QString::number(color.red()) + " G: " + QString::number(color.green()) + " B: " + QString::number(color.blue()));
 
     timer = new QTimer(this);
@@ -99,7 +99,7 @@ MainWindow::MainWindow()
 
 void MainWindow::Update()
 {
-    static unsigned int number = 0;
+    static int number = 0;
 
     color.setRgb(color.red() + (end_color.red() - start_color.red())/ amount->value(), color.green() + (end_color.green() - start_color.green())/ amount->value(),color.blue() + (end_color.blue() - start_color.blue())/ amount->value());
 
@@ -134,10 +134,10 @@ void MainWindow::Set_Color(int R, int G, int B, QPainter *painter)
    QColor col;
 
    col.setRgb(R,G,B);
-   painter->fillRect(90,10,180,340,col);
+   painter->fillRect(110,10,130,340,col);
    painter->fillRect(240,10,150,320,col);
    painter->setPen(QColor(0x808080));
-   painter->drawLine(82,0,82,360);
+   painter->drawLine(100,0,100,360);
    end_color_label->setText("R: " + QString::number(col.red()) + " G: " + QString::number(col.green()) + " B: " + QString::number(col.blue()));
 }
 void MainWindow::paintEvent(QPaintEvent *)
